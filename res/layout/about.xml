@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:orientation="vertical"
+	android:background="#048960">
+
+	<ScrollView
+		android:layout_height="0dp"
+		android:layout_width="fill_parent"
+		android:fillViewport="true"
+		android:layout_gravity="center_horizontal"
+		android:layout_weight="1.0">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:gravity="center_horizontal"
+			android:padding="10dp">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:text="Resflux"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content"
+				android:textColor="#00FF8D"/>
+
+			<TextView
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="Developed by WisdomSky"
+				android:layout_width="wrap_content"/>
+
+			<TextView
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="\tResflux is a an Xposed module android application. The mission of Resflux is to provide android users the ability to theme up their devices very easily and safely by providing them a very user-friendly interface."
+				android:layout_width="wrap_content"
+				android:layout_marginTop="20dp"
+				android:layout_gravity="left|fill_horizontal"/>
+
+			<TextView
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="\tThanks to sir @rovo89 of XDA-Developers and to his Xposed Framework, we can now modify apk's resources without actually decompiling the apk file. As long as the Xposed Framework is installed in your system, Resflux will work just fine."
+				android:layout_width="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_gravity="left|fill_horizontal"/>
+
+			<TextView
+				android:textSize="15sp"
+				android:layout_height="wrap_content"
+				android:text="\tResflux is FREE to download and use which means I don't get anything from this. If you have a very big heart and is willing to donate any amount so I can replace my Samsung Galaxy Y with a new one, please don't hesitate to contact me:"
+				android:layout_width="wrap_content"
+				android:layout_marginTop="30dp"
+				android:layout_gravity="left|fill_horizontal"/>		
+	
+			<TextView
+				android:textSize="15sp"
+				android:layout_height="wrap_content"
+				android:text="Email:"
+				android:layout_width="wrap_content"
+				android:layout_marginTop="30dp"
+				android:layout_gravity="left|fill_horizontal"/>			
+			<TextView
+				android:textColorLink="#aaffaa"
+				android:autoLink="email"
+				android:linksClickable="true"
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="julianpaolodayag143@gmail.com"
+				android:layout_width="wrap_content"/>
+			<TextView
+				android:textSize="15sp"
+				android:layout_height="wrap_content"
+				android:text="Facebook:"
+				android:layout_width="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_gravity="left|fill_horizontal"/>			
+			<TextView
+				android:textColorLink="#aaffaa"
+				android:autoLink="web"
+				android:linksClickable="true"
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="http://facebook.com/wisdomsky"
+				android:layout_width="wrap_content"/>
+			<TextView
+				android:textSize="15sp"
+				android:layout_height="wrap_content"
+				android:text="XDA-Developers:"
+				android:layout_width="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_gravity="left|fill_horizontal"/>			
+			<TextView
+				android:textColorLink="#aaffaa"
+				android:autoLink="web"
+				android:linksClickable="true"
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="http://forum.xda-developers.com/member.php?u=5255339"
+				android:layout_width="wrap_content"/>
+			
+		</LinearLayout>
+
+	</ScrollView>
+</LinearLayout>
+
+

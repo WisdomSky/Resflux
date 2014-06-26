@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+	android:gravity="center"
+	>
+
+    <TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shadowRadius="2"
+		android:shadowColor="#005500"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:textSize="75sp"
+		android:textColor="#55ff55"
+		android:text="Resflux" />		
+		
+
+   <!-- <TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="16sp"
+		android:textColor="#777777"
+		android:text=""
+		android:shadowRadius="0"
+		/>		
+	-->
+	<ProgressBar
+		android:id="@+id/loading"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+		
+	<LinearLayout
+		android:gravity="center"
+		android:orientation="vertical" 
+		android:visibility="gone"
+		android:id="@+id/rooms"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<Button
+			android:onClick="laboratory"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			style="@style/button_text"
+			android:text="Laboratory"
+			android:background="@drawable/button_1"
+			/>
+	
+		<Button
+			android:onClick="importt"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			style="@style/button_text"
+			android:text="Import"
+			android:background="@drawable/button_2"
+		/>
+
+		<Button
+			android:onClick="export"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			style="@style/button_text"
+			android:text="Export"
+			android:background="@drawable/button_4"
+		/>
+		
+		<Button
+			android:onClick="about"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			style="@style/button_text"
+			android:text="About"
+			android:background="@drawable/button_3"
+		/>
+		
+	</LinearLayout>
+	
+	
+	<TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shadowRadius="1"
+		android:shadowColor="#000000"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:textSize="18sp"
+		android:textColor="#dddddd"
+		android:text="WisdomSky \u00a9 2014" />
+
+	
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <bool name="hello1">false</bool>
+    <bool name="app_name2">true</bool>
+
+</resources>
