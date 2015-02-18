@@ -2,10 +2,14 @@ package com.iwisdomsky.resflux.dialog;
 
 import android.app.*;
 import android.content.*;
-import android.util.*;
+import android.graphics.*;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
+import com.iwisdomsky.resflux.*;
 import com.larswerkman.holocolorpicker.*;
+
+import com.larswerkman.holocolorpicker.R;
 
 public class SetColorDialog
 {
@@ -17,7 +21,7 @@ public class SetColorDialog
 	private AlertDialog mCPD;
 	private OpacityBar mOpacityBar;
 	private AlertDialog.Builder mDialog;
-	
+	private EditText et;
 	public SetColorDialog(Context context){
 		this.mContext = context;
 		this.mDialog = new AlertDialog.Builder(mContext);
@@ -31,18 +35,19 @@ public class SetColorDialog
 		ll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(5,0,5,5);
-	 	ll.setMinimumWidth(400);		
+	 	ll.setMinimumWidth(Constants.DIALOG_MIN_WIDTH);
+		
 		// Color Hex Value Text View
-		final EditText et = new EditText(mContext);
+		et = new EditText(mContext);
 		et.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-		et.setFocusable(false);
+		et.setFocusable(true);
 		et.setGravity(Gravity.CENTER);
 		et.setShadowLayer(0,0,0,0);
 		et.setBackgroundColor(0x00000000);
 		et.setOnKeyListener(new View.OnKeyListener(){
 			public boolean onKey(View p1, int p2, KeyEvent p3)
 			{
-				return true;
+				return false;
 			}
 		});
 		
@@ -53,8 +58,8 @@ public class SetColorDialog
 		mColorPicker.setOnColorChangedListener(new ColorPicker.OnColorChangedListener(){
 			public void onColorChanged(int color)
 			{
-				et.setText("#"+Integer.toHexString(color));
-				et.setTextColor(color);
+				et.setText("#"+((Integer.toHexString(color).equals("0"))?"00000001":Integer.toHexString(color)));
+				et.setTextColor(Color.WHITE);
 				
 			}
 		});
@@ -80,14 +85,14 @@ public class SetColorDialog
 		mButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mButton.setVisibility(View.GONE);
 		mButton.setGravity(Gravity.CENTER);		
-		mButton.setBackgroundResource(R.drawable.button_2);
+		//mButton.setBackgroundResource(R.drawable.button_2);
 		
 		// Cancel Button
 		mCButton  = new Button(mContext);
 		mCButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mCButton.setVisibility(View.GONE);
 		mCButton.setGravity(Gravity.CENTER);		
-		mCButton.setBackgroundResource(R.drawable.button_1);
+		//mCButton.setBackgroundResource(R.drawable.button_1);
 		
 				
 		
@@ -116,6 +121,11 @@ public class SetColorDialog
 		
 	}
 	
+	public SetColorDialog setTitle(String text){		
+		mDialog.setTitle(text);		
+		return this;
+	}
+	
 	
 	public SetColorDialog setColor(int color){
 		mColorPicker.setNewCenterColor(color);
@@ -137,9 +147,13 @@ public class SetColorDialog
 		mButton.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View p1)
 			{
-				if ( listener!=null ) 
-					listener.onClick(mColorPicker.getColor());
-				mCPD.dismiss();
+				if ( et.getText().toString().matches("^#([0-9a-fA-F]{8}|[0-9a-fA-F]{6})$") 
+					&& !et.getText().toString().matches("^#[0]+$")  ) {
+					if ( listener!=null ) 
+						listener.onClick(et.getEditableText().toString());
+					mCPD.dismiss();
+				} else 
+					Toast.makeText(mContext,"Invalid color hex code format!",Toast.LENGTH_SHORT).show();
 			}
 		});
 		mButton.setVisibility(View.VISIBLE);
@@ -153,7 +167,7 @@ public class SetColorDialog
 				public void onClick(View p1)
 				{
 					if ( listener!=null )
-						listener.onClick(0);
+						listener.onClick(null);
 					mCPD.dismiss();
 				}
 			});
@@ -171,7 +185,7 @@ public class SetColorDialog
 	
 	
 	public static interface OnClickListener {
-		public void onClick(int color); 
+		public void onClick(String color); 
 	}
 
 	private static class CPTextView extends TextView{

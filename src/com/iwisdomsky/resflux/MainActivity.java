@@ -2,17 +2,18 @@ package com.iwisdomsky.resflux;
 
 import android.app.*;
 import android.content.*;
+import android.net.*;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
 import java.io.*;
-import java.lang.reflect.*;
+import android.content.pm.*;
 
 
 public class MainActivity extends Activity
 {
 
-	LinearLayout mRooms;
+	ScrollView mRooms;
 	ProgressBar mProgress;
 	
 	/** Called when the activity is first created. */
@@ -21,17 +22,17 @@ public class MainActivity extends Activity
 	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		mRooms = (LinearLayout) findViewById(R.id.rooms);
+		mRooms = (ScrollView) findViewById(R.id.rooms);
 		mProgress = (ProgressBar) findViewById(R.id.loading);
 	
 		getFilesDir().mkdir();
 		Utils.mkDirs(Environment.getExternalStorageDirectory(),"Resflux");
 		Utils.mkDirs(getFilesDir(),"packages");		
-		/*
-		if ( !isXposedInstalled() ) {
+		
+		if ( false/*!isXposedInstalled()*/ ) {
 			new AlertDialog.Builder(this)
-			.setTitle("Xposed Not Found!")
-			.setMessage("Xposed framework is not yet installed into your system.\nResflux requires the Xposed Framework in order to work.\n\nDo you want to download the Xposed Framework Installer?")
+			.setTitle("Can't detect Xposed!")
+			.setMessage("It seems that Xposed is not yet installed in your system.\nXposed Framework is required to be installed first in order for Resflux to work.\n\nDo you want to download the Xposed Installer?")
 			.setPositiveButton("Download", new DialogInterface.OnClickListener(){
 				public void onClick(DialogInterface p1, int p2)
 				{
@@ -57,7 +58,7 @@ public class MainActivity extends Activity
 				}			
 			}).create().show();
 			
-		}*/
+		}
 		
 		new Thread(loadReqs()).start();		
 			
@@ -79,16 +80,44 @@ public class MainActivity extends Activity
 		startActivity(i);
 	}
 
+	public void compile(View v) {
+		try
+		{
+			ApplicationInfo ai = getPackageManager().getApplicationInfo("com.iwisdomsky.resflux.compiler", 0);
+			Intent i = getPackageManager().getLaunchIntentForPackage("com.iwisdomsky.resflux.compiler");
+			startActivity(i);
+		}
+		catch (PackageManager.NameNotFoundException e)
+		{
+			new AlertDialog.Builder(this)
+				.setTitle("Resflux Compiler is not installed!")
+				.setMessage("It seems the Resflux Compiler is not installed. You need to download and install the Resflux Compiler in order to use this feature.\n\n"+
+							"Resflux Compiler will allow you to export your Resflux mods into its stand-alone xposed module form.\n\nCheck READ ME! for more details")
+				.create().show();			
+		}
+
+	
+	}	
+	
 	public void about(View v) {
 		LayoutInflater i = getLayoutInflater();
 		View vv = i.inflate(R.layout.about,null);
-		vv.setMinimumWidth(400);
-		vv.setMinimumHeight(500);	
+		vv.setMinimumWidth(Constants.DIALOG_MIN_WIDTH);
+		vv.setMinimumHeight(Constants.DIALOG_MIN_WIDTH);	
 		new AlertDialog.Builder(this)
 		.setView(vv)
 		.create().show();
 	}
 	
+	public void help(View v) {	
+		LayoutInflater i = getLayoutInflater();
+		View vv = i.inflate(R.layout.help,null);
+		vv.setMinimumWidth(Constants.DIALOG_MIN_WIDTH);
+		vv.setMinimumHeight(Constants.DIALOG_MIN_WIDTH);	
+		new AlertDialog.Builder(this)
+			.setView(vv)
+			.create().show();
+	}
 	
 	private Runnable loadReqs(){
 		return new Runnable(){

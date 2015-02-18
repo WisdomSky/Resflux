@@ -48,7 +48,7 @@ public class FileListAdapter extends ArrayAdapter<String>
 		// fill data 
 		ViewHolder holder = (ViewHolder) rowView.getTag(); 	
 		holder.name.setText(mFiles.get(position).getName());
-		if (mFiles.get(position).isDirectory()) {
+		/*if (mFiles.get(position).isDirectory()) {
 			holder.icon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.folder));
 			rowView.setBackgroundResource(R.drawable.button_1);
 		} else {
@@ -61,7 +61,7 @@ public class FileListAdapter extends ArrayAdapter<String>
 			holder.name.setText("Go back");
 			rowView.setBackgroundResource(R.drawable.button_4);
 		}
-		
+		*/
 		return rowView; 
 	}
 

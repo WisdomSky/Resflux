@@ -9,15 +9,9 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:shadowRadius="2"
-		android:background="@drawable/button_1"
-		android:shadowColor="#000000"
-		android:padding="5dp"
-		android:shadowDx="1"
-		android:shadowDy="1"
 		android:textSize="18sp"
-		android:textColor="#ffffff"
-		android:text="Select packages to export:" />		
+		android:gravity="center"
+		android:text="Select packages to export" />		
 
 	<!--<ProgressBar
 		android:layout_gravity="center"
@@ -45,9 +39,7 @@
 			android:layout_weight="1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			style="@style/button_text"
 			android:text="Export"
-			android:background="@drawable/button_2"
 			/>
 	
 		<Button
@@ -56,9 +48,7 @@
 			android:layout_weight="1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			style="@style/button_text"
 			android:text="Return"
-			android:background="@drawable/button_1"
 		/>
 	</LinearLayout>
 

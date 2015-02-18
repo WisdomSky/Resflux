@@ -16,11 +16,9 @@ public class Xposed implements IXposedHookZygoteInit, IXposedHookInitPackageReso
 	
 	@Override
 	public void initZygote(StartupParam startupParam) throws Throwable {
-		//XposedBridge.log("MoDule path: => "+startupParam.modulePath);
 		mPackages = new ArrayList<String>();
 		mPackagesDir = new File("/data/data/"+mModulePackageName+"/files/packages");
 		for ( File p : mPackagesDir.listFiles()) {
-			//XposedBridge.log("Package => "+p.getName());
 			mPackages.add(p.getName());
 		}
 		mPackages.remove("android");
@@ -111,7 +109,8 @@ public class Xposed implements IXposedHookZygoteInit, IXposedHookInitPackageReso
 		File colors_list = new File(pkg,"color");
 		for ( File f : colors_list.listFiles()) {
 			BufferedReader br = new BufferedReader(new FileReader(f));
-			lpparam.res.setReplacement(lpparam.packageName,"color",f.getName(),Color.parseColor("#"+br.readLine()));
+			String l = br.readLine();
+			lpparam.res.setReplacement(lpparam.packageName,"color",f.getName(),Color.parseColor((l.startsWith("#")?"":"#")+l));
 		}
 		
 		// for booleans
@@ -140,7 +139,8 @@ public class Xposed implements IXposedHookZygoteInit, IXposedHookInitPackageReso
 					public Drawable newDrawable(XResources p1, int p2) throws Throwable
 					{
 						BufferedReader br = new BufferedReader(new FileReader(d));
-						Drawable e = new ColorDrawable(Color.parseColor("#"+br.readLine()));
+						String l = br.readLine();
+						Drawable e = new ColorDrawable(Color.parseColor((l.startsWith("#")?"":"#")+l));
 						return e;						
 					}
 				});

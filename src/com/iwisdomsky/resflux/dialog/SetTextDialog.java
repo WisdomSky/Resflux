@@ -32,7 +32,7 @@ public class SetTextDialog
 		ll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(5,0,5,5);
-		ll.setMinimumWidth(400); 			
+		ll.setMinimumWidth(Constants.DIALOG_MIN_WIDTH); 			
 
 		
 		
@@ -42,7 +42,7 @@ public class SetTextDialog
 	
 		mEditText = new EditText(mContext);
 		mEditText.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-		mEditText.setBackgroundResource(R.drawable.button_4);
+		//mEditText.setBackgroundResource(R.drawable.button_4);
 		mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
 		mEditText.setTextColor(0xFFFFFFFF);
 		mEditText.setSingleLine(true);
@@ -52,14 +52,14 @@ public class SetTextDialog
 		mButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mButton.setVisibility(View.GONE);
 		mButton.setGravity(Gravity.CENTER);		
-		mButton.setBackgroundResource(R.drawable.button_2);
+		//mButton.setBackgroundResource(R.drawable.button_2);
 		
 		// Cancel Button
 		mCButton  = new Button(mContext);
 		mCButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mCButton.setVisibility(View.GONE);
 		mCButton.setGravity(Gravity.CENTER);		
-		mCButton.setBackgroundResource(R.drawable.button_1);
+		//mCButton.setBackgroundResource(R.drawable.button_1);
 		
 				
 		
@@ -76,6 +76,12 @@ public class SetTextDialog
 		mDialog.setView(ll);
 		
 	}
+	
+	public SetTextDialog setTitle(String text){		
+		mDialog.setTitle(Html.fromHtml("<font size=\"5\">"+text+"</font>"));		
+		return this;
+	}
+	
 	public SetTextDialog setIntegerInputType(boolean bool){
 		if ( bool )
 			mEditText.setInputType(InputType.TYPE_CLASS_NUMBER);

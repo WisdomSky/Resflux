@@ -3,8 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="match_parent"
 	android:layout_width="match_parent"
-	android:orientation="vertical"
-	android:background="#048960">
+	android:orientation="vertical">
 
 	<ScrollView
 		android:layout_height="0dp"
@@ -22,10 +21,9 @@
 
 			<TextView
 				android:layout_height="wrap_content"
-				android:text="Resflux"
+				android:text="Resflux v1.6"
 				android:textAppearance="?android:attr/textAppearanceMedium"
-				android:layout_width="wrap_content"
-				android:textColor="#00FF8D"/>
+				android:layout_width="wrap_content"/>
 
 			<TextView
 				android:textSize="14sp"
@@ -36,7 +34,13 @@
 			<TextView
 				android:textSize="14sp"
 				android:layout_height="wrap_content"
-				android:text="\tResflux is a an Xposed module android application. The mission of Resflux is to provide android users the ability to theme up their devices very easily and safely by providing them a very user-friendly interface."
+				android:text="(Julian Paolo Dayag)"
+				android:layout_width="wrap_content"/>		
+				
+			<TextView
+				android:textSize="14sp"
+				android:layout_height="wrap_content"
+				android:text="\tResflux is a an Xposed module. The mission of Resflux is to provide Android users the ability to theme up their favorite applications to their own liking. Resflux is very easy to use, thanks to it's very simple and straight-forward interface."
 				android:layout_width="wrap_content"
 				android:layout_marginTop="20dp"
 				android:layout_gravity="left|fill_horizontal"/>
@@ -44,15 +48,15 @@
 			<TextView
 				android:textSize="14sp"
 				android:layout_height="wrap_content"
-				android:text="\tThanks to sir @rovo89 of XDA-Developers and to his Xposed Framework, we can now modify apk's resources without actually decompiling the apk file. As long as the Xposed Framework is installed in your system, Resflux will work just fine."
+				android:text="\tThanks to sir @rovo89 of XDA-Developers and to his Xposed Framework, we can now modify apk's resources without actually decompiling the apk file. As long as the Xposed Framework is installed in your system, Resflux should work just fine."
 				android:layout_width="wrap_content"
 				android:layout_marginTop="10dp"
 				android:layout_gravity="left|fill_horizontal"/>
 
 			<TextView
-				android:textSize="15sp"
+				android:textSize="16sp"
 				android:layout_height="wrap_content"
-				android:text="\tResflux is FREE to download and use which means I don't get anything from this. If you have a very big heart and is willing to donate any amount so I can replace my Samsung Galaxy Y with a new one, please don't hesitate to contact me:"
+				android:text="\tResflux is FREE to download and use. You can FREELY use most of its features. Resflux is also AD-Free. It means I will not get anything in return from Resflux. I'm just hoping that someone will appreciate the effort I've invested in making Resflux and want to pay back that effort through a small donation. If you have a very nice heart and is willing to donate any amount so I can replace my poor Samsung Galaxy Y with a new one, please don't hesitate to email me or send your donations directly to my PayPal Account:"
 				android:layout_width="wrap_content"
 				android:layout_marginTop="30dp"
 				android:layout_gravity="left|fill_horizontal"/>		
@@ -60,12 +64,20 @@
 			<TextView
 				android:textSize="15sp"
 				android:layout_height="wrap_content"
-				android:text="Email:"
+				android:text="\tResflux's Compile feature will be available in the future as a premium offering. This feature will allow you to export and compile your project into a stand-alone Xposed Module, which means you can distribute your work like app skin(theme), app translations and more as an Xposed Module of your own and without the need for Resflux to be installed. I have decided that access to this feature will be granted to all those who donated only, following the pace of other developers."
+				android:layout_width="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_gravity="left|fill_horizontal"/>	
+
+	
+			<TextView
+				android:textSize="15sp"
+				android:layout_height="wrap_content"
+				android:text="PayPal Account:"
 				android:layout_width="wrap_content"
 				android:layout_marginTop="30dp"
 				android:layout_gravity="left|fill_horizontal"/>			
 			<TextView
-				android:textColorLink="#aaffaa"
 				android:autoLink="email"
 				android:linksClickable="true"
 				android:textSize="14sp"
@@ -80,7 +92,6 @@
 				android:layout_marginTop="10dp"
 				android:layout_gravity="left|fill_horizontal"/>			
 			<TextView
-				android:textColorLink="#aaffaa"
 				android:autoLink="web"
 				android:linksClickable="true"
 				android:textSize="14sp"
@@ -95,7 +106,6 @@
 				android:layout_marginTop="10dp"
 				android:layout_gravity="left|fill_horizontal"/>			
 			<TextView
-				android:textColorLink="#aaffaa"
 				android:autoLink="web"
 				android:linksClickable="true"
 				android:textSize="14sp"

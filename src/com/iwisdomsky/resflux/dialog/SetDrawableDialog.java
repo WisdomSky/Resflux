@@ -35,23 +35,25 @@ public class SetDrawableDialog
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(5,0,5,5);
 		ll.setMinimumWidth(400);
+		
+		
 		// create the list view
 		mListView = new ListView(mContext);
-		mListView.setLayoutParams(new TableLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, 0, 1f));
+		/*mListView.setLayoutParams(new TableLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, 0, 1f));
 		
-		// initialize the list
+		*/// initialize the list
 		mFiles = new ArrayList<File>();
 		
-		// populate the list
-		File ex = Environment.getExternalStorageDirectory();
+		/*// populate the list
+	 	File ex = Environment.getExternalStorageDirectory();
 		populateList(ex.listFiles());
 
 		// add back button
 		mFiles.add(new File("/"));
-		// create the adapter
+		*/// create the adapter
 		mAdapter = new FileListAdapter((Activity)mContext,mFiles);
 		// set the adapter
-		mListView.setAdapter(mAdapter);
+		//mListView.setAdapter(mAdapter);
 
 		
 		LinearLayout vll = new LinearLayout(mContext);
@@ -77,7 +79,7 @@ public class SetDrawableDialog
 		// Adding Views
 		
 		ll.addView(new SDTextView(mContext,"Select image:"));	
-		ll.addView(mListView);
+		//ll.addView(mListView);
 		vll.addView(mButton);
 		vll.addView(mCButton);
 		ll.addView(vll);

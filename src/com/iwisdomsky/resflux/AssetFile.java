@@ -22,16 +22,7 @@ public class AssetFile extends File
 		try
 		{
 			InputStream in = mContext.getAssets().open(this.getName());
-			FileOutputStream os = new FileOutputStream(this);
-			int read;
-			byte[] buffer = new byte[Constants.BUFFER_SIZE];
-			while ( (read = in.read(buffer))!=-1 )
-				os.write(buffer, 0, read);
-			os.flush();
-			os.close();
-			in.close();
-			setReadable(true,false);
-			setExecutable(true,false);
+			Utils.saveToFile(in,this);
 		}
 		catch (IOException e)
 		{}

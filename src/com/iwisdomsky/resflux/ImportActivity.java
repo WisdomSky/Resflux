@@ -40,6 +40,9 @@ public class ImportActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.importt);
 		
+		Utils.mkDirs(Environment.getExternalStorageDirectory(),"Resflux");
+		
+		
 		// initializations
 		mImportCandidatesList = new ArrayList<String>();
 		mAdapter =  new CandidatesListAdapter(ImportActivity.this,mImportCandidatesList);
@@ -51,6 +54,7 @@ public class ImportActivity extends Activity {
 		mProgress.setGravity(Gravity.CENTER);
 		mProgress.addView(new ProgressBar(this));
 		mListView = (ListView)findViewById(R.id.packagelist);		
+		mListView.setFastScrollEnabled(true);
 		mListView.addFooterView(mProgress);
 		mListView.setAdapter(mAdapter);	
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -88,7 +92,7 @@ public class ImportActivity extends Activity {
 											public void run()
 											{
 												mImporting.dismiss();
-												Toast.makeText(ImportActivity.this,"Import complete!",Toast.LENGTH_SHORT).show();
+												Toast.makeText(ImportActivity.this,"Import complete!\nREBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
 											}
 										});
 									}
@@ -121,8 +125,8 @@ public class ImportActivity extends Activity {
 		return new Runnable(){
 			@Override
 			public void run(){				
-				scanForImportCandidates(new File(Environment.getExternalStorageDirectory(),"resflux"));
-				scanForImportCandidates(Environment.getExternalStorageDirectory());				
+				scanForImportCandidates(new File(Environment.getExternalStorageDirectory(),"Resflux"));
+				//scanForImportCandidates(Environment.getExternalStorageDirectory());				
 				runOnUiThread(new Runnable(){
 					public void run(){		
 						loadImportCandidatesCallback();

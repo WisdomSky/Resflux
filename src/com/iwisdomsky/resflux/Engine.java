@@ -180,6 +180,7 @@ public class Engine
 					if ( stmt.startsWith("[") ) {
 							check_point = 3;
 							isPkgDeclared = true;
+							continue;
 					}
 					/* RULE 3: 
 					* Before declaring drawable.*, string.*, color.*, boolean.* and integer.* statements

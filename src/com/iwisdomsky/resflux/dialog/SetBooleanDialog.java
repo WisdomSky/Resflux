@@ -33,7 +33,7 @@ public class SetBooleanDialog
 		ll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
 		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.setPadding(5,0,5,5);
-		ll.setMinimumWidth(400);
+		ll.setMinimumWidth(Constants.DIALOG_MIN_WIDTH);
 		
 		// true button
 	 	mTButton = new Button(mContext);
@@ -66,14 +66,14 @@ public class SetBooleanDialog
 		mButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mButton.setVisibility(View.GONE);
 		mButton.setGravity(Gravity.CENTER);		
-		mButton.setBackgroundResource(R.drawable.button_2);
+	//	mButton.setBackgroundResource(R.drawable.button_2);
 
 		// Cancel Button
 		mCButton  = new Button(mContext);
 		mCButton.setLayoutParams(new TableLayout.LayoutParams(0,ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 		mCButton.setVisibility(View.GONE);
 		mCButton.setGravity(Gravity.CENTER);		
-		mCButton.setBackgroundResource(R.drawable.button_1);
+		//mCButton.setBackgroundResource(R.drawable.button_1);
 
 
 
@@ -92,16 +92,19 @@ public class SetBooleanDialog
 
 	}
 
-
+	public SetBooleanDialog setTitle(String text){		
+		mDialog.setTitle(text);		
+		return this;
+	}
 	
 	public SetBooleanDialog setValue(boolean value){
 		this.mValue = value;
 		if ( value ) {
-			mTButton.setBackgroundResource(R.drawable.button_4);
-			mFButton.setBackgroundResource(R.drawable.button_1);			
+			mTButton.setBackgroundColor(0xff444444);
+			mFButton.setBackgroundColor(0x00000000);			
 		} else {
-			mTButton.setBackgroundResource(R.drawable.button_1);
-			mFButton.setBackgroundResource(R.drawable.button_4);						
+			mTButton.setBackgroundResource(0x00000000);
+			mFButton.setBackgroundResource(0xff444444);						
 		}		
 		return this;
 	}

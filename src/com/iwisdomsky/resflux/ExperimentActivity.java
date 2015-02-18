@@ -2,19 +2,23 @@ package com.iwisdomsky.resflux;
 
 import android.app.*;
 import android.content.*;
+import android.database.*;
 import android.graphics.*;
-import android.graphics.drawable.*;
+import android.net.*;
 import android.os.*;
+import android.text.*;
 import android.view.*;
 import android.widget.*;
-import android.widget.TabHost.*;
 import com.iwisdomsky.resflux.adapter.*;
 import com.iwisdomsky.resflux.dialog.*;
 import java.io.*;
 import java.util.*;
+import android.content.pm.*;
 
-public class ExperimentActivity extends TabActivity implements TabHost.OnTabChangeListener, AdapterView.OnItemClickListener
+public class ExperimentActivity extends TabActivity implements TabHost.OnTabChangeListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener
 {
+
+
 
     /** Called when the activity is first created. */
     
@@ -38,7 +42,7 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 	// the cobtainers of the keys and corresponding value determined by their index
 	private ArrayList<String> mRkeys;
 	private ArrayList<String> mRvals; 	
-	
+	private ArrayList<String> mRovals;
 	// these are the specified directories where mods are possibly stored
 	private File mPackageDir;
 	private File mPackageDrawableDir;
@@ -53,6 +57,9 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 	// the current tab?
 	private String mCurrentTab = "drawable"; 
 	
+	//
+	private int drawableIndex;
+
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +71,9 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 		mProgress = ProgressDialog.show(this, null, "Mapping resources...", true, true);
 		mPackage = new AndroidPackage(this, mPackageName);
 		mListView = (ListView) findViewById(R.id.resources);
+		mListView.setFastScrollEnabled(true);
 		mListView.setOnItemClickListener(this);
+		mListView.setOnItemLongClickListener(this);
 		mProgress.setOnCancelListener(new DialogInterface.OnCancelListener(){
 			public void onCancel(DialogInterface p1)
 			{
@@ -75,15 +84,29 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 		
 		mkDirs();
 		
+		((EditText)findViewById(R.id.filter)).addTextChangedListener(new TextWatcher(){
+			public void beforeTextChanged(CharSequence a,int b,int c,int d){
+				
+			}
+			public void onTextChanged(CharSequence a,int b,int c,int d){
+				//mAdapter.getFilter().filter(a);
+			}
+			public void afterTextChanged(Editable e){
+
+			}
+		});
+		
+		
 		// inform the user that first time will take some time
-		Toast t = Toast.makeText(this," This process will only take much time for the first time.",Toast.LENGTH_SHORT);
-		t.setGravity(Gravity.BOTTOM|Gravity.CENTER,0,0);
-		t.show();
+		if ( !isCached(mPackageName) ) {
+			Toast t = Toast.makeText(this,"This process might take longer time to finish. Don't worry, this will only happen once, so please have some patience. :)",Toast.LENGTH_LONG);
+			t.setGravity(Gravity.CENTER,0,0);
+			t.show();
+		}
 		
 		// start mapping
 		mThread = new XThread(mapResources());
 		mThread.start();
-		
 	 	mHost = (TabHost)findViewById(android.R.id.tabhost);
         
 		// adding the tabs
@@ -139,68 +162,45 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 		// for color type of resources
 		if ( mCurrentTab.matches("^drawable|color$") && mRvals.get(p3).matches("^#[a-fA-F\\d]+$") ){
 			SetColorDialog d = new SetColorDialog(this);
+			d.setTitle(fkey);
 			d.setColor(Color.parseColor(mRvals.get(p3)));
 			d.setPositiveButton("Done", new SetColorDialog.OnClickListener(){
-				public void onClick(int color)
+				public void onClick(String color)
 				{		
-					String s_color = ((color==0)?"00000000":Integer.toHexString(color));
-					if ( !(("#"+s_color).equals(mRvals.get(i))) ){
+					
+					if ( !((color).equals(mRvals.get(i))) ){
 						File copy_to = new File(mCurrentTab.equals("drawable")?mPackageDrawableDir:mPackageColorDir,new File(fkey).getName());
-						InputStream in = new ByteArrayInputStream(s_color.getBytes());
+						InputStream in = new ByteArrayInputStream(color.getBytes());
 						Utils.saveToFile(in,copy_to);	
-						mRvals.set(i, "#" + s_color);
+						mRvals.set(i, color);
 						String ukey = mRkeys.get(i).startsWith("!")?"":"!";
 						mRkeys.set(i,ukey + mRkeys.get(i));
 						mAdapter.notifyDataSetChanged();
-					}				
+					}
+					Toast.makeText(ExperimentActivity.this,"REBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
 				}
 			});
 			d.setNegativeButton("Reset", new SetColorDialog.OnClickListener(){
-				public void onClick(int color)
+				public void onClick(String color)
 					{
 						new File(mCurrentTab.equals("drawable")?mPackageDrawableDir:mPackageColorDir,new File(fkey).getName()).delete();
-						String tab = mCurrentTab;
-						mHost.setCurrentTabByTag("boolean");
-						mHost.setCurrentTabByTag(tab);
+						resetValue(i);
 					}
 				});
 			d.show();
 		} else		
 		// for PNG drawables 
 		if ( mRvals.get(p3).matches("^.*\\.(PNG|png)$") ){
-			SetDrawableDialog d = new SetDrawableDialog(this);
-			d.setOnItemClickListener(new SetDrawableDialog.OnItemClickListener(){
-				public void onItemClick(File file)
-				{
-					File copy_to = new File(mPackageDrawableDir,new File(mRvals.get(i)).getName());
-					try
-					{
-						FileInputStream in = new FileInputStream(file);
-						Utils.saveToFile(in, copy_to);
-					}
-					catch (FileNotFoundException e)
-					{}
-				
-					mRvals.set(i, copy_to.getAbsolutePath());
-					String ukey = mRkeys.get(i).startsWith("!")?"":"!";
-					mRkeys.set(i,ukey + mRkeys.get(i));
-					mAdapter.notifyDataSetChanged();		
-				}
-			});
-			d.setNegativeButton("Reset", new SetDrawableDialog.OnClickListener(){
-					public void onClick()
-					{
-						new File(mPackageDrawableDir,new File(mRvals.get(i)).getName()).delete();
-						String tab = mCurrentTab;
-						mHost.setCurrentTabByTag("boolean");
-						mHost.setCurrentTabByTag(tab);
-					}
-				});
-			d.show();
+			drawableIndex = p3;
+			Intent intent = new Intent();
+			intent.setType("image/*");
+			intent.setAction(Intent.ACTION_PICK);		
+			startActivityForResult(Intent.createChooser(intent, "Select Replacement Drawable"), DRAWABLE_IMAGE_PICK);
 			
 		// for boolean	
 		} else if ( mCurrentTab.equals("boolean") ) {
 			SetBooleanDialog d = new SetBooleanDialog(this);
+			d.setTitle(fkey);
 			d.setValue(Boolean.valueOf(mRvals.get(i)));
 			d.setPositiveButton("Done", new SetBooleanDialog.OnClickListener(){
 					public void onClick(boolean value)
@@ -214,24 +214,24 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 							mRkeys.set(i,ukey + mRkeys.get(i));
 							mAdapter.notifyDataSetChanged();
 							
-						}					
+						}	
+						Toast.makeText(ExperimentActivity.this,"REBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
 					}
 				});
 			d.setNegativeButton("Reset", new SetBooleanDialog.OnClickListener(){
 					public void onClick(boolean value)
 					{
 						new File(mPackageBooleanDir,new File(fkey).getName()).delete();
-						String tab = mCurrentTab;
-						mHost.setCurrentTabByTag("integer");
-						mHost.setCurrentTabByTag(tab);
+						resetValue(i);
 					}
 				});
 			d.show();
 		// if string or integer
 		} else {
 			SetTextDialog d = new SetTextDialog(this);
+			d.setTitle(fkey);
 			if ( mCurrentTab.equals("integer") )
-				d.setIntegerInputType(true);
+			d.setIntegerInputType(true);
 			d.setText(mRvals.get(i));
 			d.setPositiveButton("Done", new SetTextDialog.OnClickListener(){
 					public void onClick(String text)
@@ -245,24 +245,132 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 							mRkeys.set(i,ukey + mRkeys.get(i));
 							mAdapter.notifyDataSetChanged();
 							
-						}					
+						}	
+						Toast.makeText(ExperimentActivity.this,"REBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
 					}
 				});
 			d.setNegativeButton("Reset", new SetTextDialog.OnClickListener(){
 					public void onClick(String text)
 					{
 						new File(mCurrentTab.equals("string")?mPackageStringDir:mPackageIntegerDir,new File(fkey).getName()).delete();
-						String tab = mCurrentTab;
-						mHost.setCurrentTabByTag("boolean");
-						mHost.setCurrentTabByTag(tab);
+						resetValue(i);
 					}
 				});
 			d.show();	
 		}
-		
-		
 	}
 
+	
+	
+	// resets a modified resource
+	public void resetValue(int i){
+		mRvals.set(i,mRovals.get(i));
+		mRkeys.set(i,mRkeys.get(i).replaceFirst("!",""));
+		mAdapter.notifyDataSetChanged();
+	}
+	
+	
+	// long press to clear
+	@Override
+	public boolean onItemLongClick(AdapterView<?> p1, View p2, int p3, long p4)
+	{
+		
+		String key = mRkeys.get(p3);
+		if ( key.startsWith("!") ) {
+			key = key.replaceFirst("!","");
+		}
+		
+		switch (Constants.ResourceTypes.valueOf(mCurrentTab.toUpperCase()) ) {
+			case DRAWABLE: 
+				new File(mPackageDrawableDir,new File(mRvals.get(p3)).getName()).delete();
+				new File(mPackageDrawableDir,new File(key).getName()).delete();	
+				break;
+			case STRING:
+				new File(mPackageStringDir,new File(key).getName()).delete();
+				break;
+			case INTEGER:
+				new File(mPackageIntegerDir,new File(key).getName()).delete();
+				break;
+			case COLOR:
+				new File(mPackageColorDir,new File(key).getName()).delete();
+				break;
+			case BOOLEAN:
+				new File(mPackageBooleanDir,new File(key).getName()).delete();			
+				break;
+		}
+		resetValue(p3);
+		
+		Toast.makeText(this,"Original value restored!\nREBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
+		return true;
+	}
+	
+	
+	
+	private static final int DRAWABLE_IMAGE_PICK = 1;
+
+	@Override 
+	protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+		if(requestCode == DRAWABLE_IMAGE_PICK && data != null && data.getData() !=null) {
+			Uri _uri = data.getData();
+			//User had pick an image.
+			Cursor cursor = getContentResolver().query(_uri, new String[]{ android.provider.MediaStore.Images.ImageColumns.DATA}, null,null, null);
+			cursor.moveToFirst();
+			final String img = cursor.getString(0);cursor.close();
+			
+			if ( img.toLowerCase().endsWith(".png") ) {
+				File copy_to = new File(mPackageDrawableDir,new File(mRvals.get(drawableIndex)).getName());
+				try
+				{
+					FileInputStream in = new FileInputStream(new File(img));
+					Utils.saveToFile(in, copy_to);
+				}
+				catch (FileNotFoundException e)
+				{}
+
+				mRvals.set(drawableIndex, copy_to.getAbsolutePath());
+				String ukey = mRkeys.get(drawableIndex).startsWith("!")?"":"!";
+				mRkeys.set(drawableIndex,ukey + mRkeys.get(drawableIndex));
+				mAdapter.notifyDataSetChanged();
+				Toast.makeText(ExperimentActivity.this,"REBOOT your phone to apply changes.",Toast.LENGTH_SHORT).show();
+			} else
+				Toast.makeText(this,"Invalid image file format! Only PNG image files are accepted.",Toast.LENGTH_SHORT).show();
+			
+			
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	@Override
+	public boolean onKeyDown(int c, KeyEvent e) {
+		if ( c==e.KEYCODE_MENU && e.getAction()==e.ACTION_DOWN ) {
+			StringBuilder sb = new StringBuilder();
+		
+			try
+			{
+				sb.append("<b>App Name</b><br />");		
+				ApplicationInfo info = getPackageManager().getApplicationInfo(mPackageName, 0);
+				sb.append(info.loadLabel(getPackageManager())+"<br><br>");
+				sb.append("<b>Location</b><br>");
+				sb.append(info.sourceDir+"<br><br>");
+				sb.append("<b>Package Name</b><br>");
+				sb.append(mPackageName+"<br><br>");
+			
+				new AlertDialog.Builder(this)
+				.setIcon(info.loadIcon(getPackageManager()))
+				.setTitle("Properties")
+				.setMessage(Html.fromHtml(sb.toString()))
+				.create()
+				.show();
+			}
+			catch (PackageManager.NameNotFoundException z){}
+		
+			
+			
+		
+		}
+		return super.onKeyDown(c,e);
+	}
+	
 
 	@Override
 	public void onTabChanged(String p1)
@@ -282,11 +390,13 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 		mRkeys = new ArrayList<String>();
 		// resource values holder
 		mRvals = new ArrayList<String>();
-				
+		mRovals = new ArrayList<String>();	
+		
 		// transfer keys and values into separate arraylists
 		for (Map.Entry<String, String> e : res) {		
 			File rf = null;
 			File rfc = null;
+			mRovals.add(e.getValue());
 			// check for existing replacements
 			switch (Constants.ResourceTypes.valueOf(p1.toUpperCase())){
 				// for drawable
@@ -298,7 +408,8 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 					else if ( rfc.exists() )
 						try
 						{
-							mRvals.add("#"+new BufferedReader(new FileReader(rfc)).readLine());				
+							String cl = new BufferedReader(new FileReader(rfc)).readLine();
+							mRvals.add((cl.startsWith("#")?"":"#")+cl);				
 						}
 						catch (IOException d)
 						{}							
@@ -334,9 +445,10 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 					rf = new File(mPackageColorDir,new File(e.getKey()).getName());
 					try
 					{
-						if (rf.exists())
-							mRvals.add("#"+new BufferedReader(new FileReader(rf)).readLine());
-						else {
+						if (rf.exists()) {
+							String color = new BufferedReader(new FileReader(rf)).readLine();
+							mRvals.add((color.startsWith("#")?"":"#")+color);
+						} else {
 							mRvals.add(e.getValue());
 							mRkeys.add(e.getKey());
 							break;
@@ -401,6 +513,7 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 	
 	 
 	private void mkDirs(){
+		getCacheDir().mkdir();
 		mPackageDir = Utils.mkDirs(getFilesDir(),"packages"); 
 		mPackageDir = Utils.mkDirs(mPackageDir,mPackageName);		
 		mPackageDrawableDir = Utils.mkDirs(mPackageDir,"drawable");		
@@ -426,7 +539,7 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 						in.close();
 						fin.close();
 					}
-					catch (Exception e) {}				
+					catch (Exception e) {}			
 				} else {
 					mRes = mPackage.getResources();
 				}
@@ -443,7 +556,9 @@ public class ExperimentActivity extends TabActivity implements TabHost.OnTabChan
 			{
 				mProgress.dismiss();
 				// TODO: do something after mapping rrsources here
-				mHost.setCurrentTabByTag("string");
+				try {
+					mHost.setCurrentTabByTag("string");
+				} catch (Exception e) {}
 			}
 		};
 	}

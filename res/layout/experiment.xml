@@ -4,15 +4,22 @@
     android:id="@android:id/tabhost" 
 	android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+   
+   
+   
 	<LinearLayout 
 		android:orientation="vertical"
         android:layout_width="match_parent" 
 		android:layout_height="match_parent">
-        
+		
+		<EditText
+			android:id="@+id/filter"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:hint="Filter resources"
+			></EditText>
 		
 		<TabWidget
-			android:background="@drawable/button_2"
 			android:textSize="12sp"
 			android:id="@android:id/tabs"
             android:layout_width="fill_parent" 
@@ -23,11 +30,11 @@
 			android:id="@android:id/tabcontent"
     		android:layout_width="match_parent" 
 			android:layout_height="match_parent">         		
-		
+				
 			<ListView 		
 				android:id="@+id/resources"
                 android:layout_width="fill_parent" 
-				android:layout_height="match_parent"
+				android:layout_height="fill_parent"
 				android:divider= "@null"
 				
 				/>

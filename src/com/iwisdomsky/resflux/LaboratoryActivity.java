@@ -28,6 +28,7 @@ public class LaboratoryActivity extends Activity
         setContentView(R.layout.laboratory);
 		mProgress = (ProgressBar)findViewById(R.id.loading);
 		mListView = (ListView)findViewById(R.id.packagelist);		
+		mListView.setFastScrollEnabled(true);
 		new Thread(loadPackagesList()).start();
 				
 	}

@@ -2,10 +2,10 @@ package com.iwisdomsky.resflux;
 
 import android.content.*;
 import android.graphics.drawable.*;
+import android.view.*;
 import android.widget.*;
-import com.iwisdomsky.resflux.*;
-import java.io.*;
 import android.widget.TabHost.*;
+import java.io.*;
 
 
 public abstract class Utils
@@ -38,19 +38,31 @@ public abstract class Utils
 	}
 
 
-	public static ImageView getImgView(Context context,int id){
+	public static LinearLayout addTabView(Context context,int id, String label){
 		ImageView iv = new ImageView(context);
 		Drawable d = context.getResources().getDrawable(id);
 		iv.setImageDrawable(d);
-		//iv.setPadding(10,10,10,10);
-		return iv;
+		
+		TextView tv = new TextView(context);
+		tv.setText(label);
+		tv.setGravity(Gravity.CENTER);
+		tv.setTextColor(0xff000000);
+		
+		LinearLayout ll = new LinearLayout(context);
+		ll.setOrientation(LinearLayout.VERTICAL);
+		ll.setGravity(Gravity.CENTER);
+		//ll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));	
+		ll.addView(tv);
+		ll.addView(iv);		
+				
+		return ll;
 	}
 
 
 	public static void addTab(Context context,TabHost host, String name, int icon){
 		TabSpec spec = host.newTabSpec(name);
         spec.setContent(R.id.resources);
-		spec.setIndicator(Utils.getImgView(context,icon));
+		spec.setIndicator(Utils.addTabView(context,icon,name));
 		host.addTab(spec);
 	}
 	

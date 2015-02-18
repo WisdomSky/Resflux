@@ -7,6 +7,8 @@ public abstract class Constants
 			
 	public static final int BUFFER_SIZE      = 1024;
 
+	public static final int DIALOG_MIN_WIDTH = 700;
+	
 	public static enum ResourceTypes{
 		DRAWABLE,STRING,COLOR,BOOLEAN,INTEGER,LAYOUT;
 	}

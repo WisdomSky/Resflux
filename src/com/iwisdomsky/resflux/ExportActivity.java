@@ -53,6 +53,7 @@ public class ExportActivity extends Activity implements View.OnClickListener
 		mProgress.setGravity(Gravity.CENTER);
 		mProgress.addView(new ProgressBar(this));
 		mListView = (ListView)findViewById(R.id.packagelist);		
+		mListView.setFastScrollEnabled(true);
 		mListView.addFooterView(mProgress);
 		mAdapter = new PackageListAdapter(ExportActivity.this,mPackagesList);
 		mListView.setAdapter(mAdapter);
@@ -299,37 +300,46 @@ public class ExportActivity extends Activity implements View.OnClickListener
 				if ( p3==mPackagesList.size() )return;	
 				if ( mExportList.contains(mPackagesList.get(p3)) ){
 					mExportList.remove(mPackagesList.get(p3));
-					p2.setBackgroundColor(0x00000000);
+					p2.setBackgroundDrawable(null);
 				} else {
 					mExportList.add(mPackagesList.get(p3));
-					p2.setBackgroundResource(R.drawable.button_4);
+					p2.setBackgroundColor(0xff444444);
 				}
 				
 			}
 		});
 		mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
 				public boolean onItemLongClick(AdapterView<?> p1, View p2, int p3, long p4)
-				{				
+				{	
+				
 					final View item = p2;
 					final int i = p3;
 					new AlertDialog.Builder(ExportActivity.this)
-					.setTitle("Reset")
-					.setMessage("Do you want to clear all modifications made on this package?")
-					.setNegativeButton("No",null)
-					.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
+					.setTitle("Actions")
+					.setSingleChoiceItems(new ArrayAdapter<String>(ExportActivity.this,android.R.layout.simple_list_item_1, new String[]{"Clear Cache","Remove Mods"}), 0, new DialogInterface.OnClickListener(){
 						public void onClick(DialogInterface p1, int p2)
 						{
-							Utils.deleteFile(new File(getFilesDir(),"packages/"+mPackagesList.get(i)));	
-							item.setBackgroundColor(0x00000000); 
-							if ( mExportList.contains(mPackagesList.get(i)) ){
-								mExportList.remove(mPackagesList.get(i));
+							switch (p2) {
+								case 0:	
+									Utils.deleteFile(new File(getCacheDir(),mPackagesList.get(i)+".bin"));
+									Toast.makeText(ExportActivity.this,"Cached resources list of this package has been cleared.",Toast.LENGTH_SHORT).show();									
+									break;
+								case 1:
+									Utils.deleteFile(new File(getFilesDir(),"packages/"+mPackagesList.get(i)));	
+									//Utils.deleteFile(new File(getCacheDir(),mPackagesList.get(i)+".bin"));
+									item.setBackgroundDrawable(null); 
+									if ( mExportList.contains(mPackagesList.get(i)) ){
+										mExportList.remove(mPackagesList.get(i));
+									}
+									mPackagesList.remove(i);
+									mAdapter.notifyDataSetChanged();
+									Toast.makeText(ExportActivity.this,"All modifications applied to this package have been removed.",Toast.LENGTH_SHORT).show();
+									break;
 							}
-								mPackagesList.remove(i);
-								mAdapter.notifyDataSetChanged();
-								
-													
+							p1.dismiss();
 						}
-					}).create().show();
+					}) 
+					.create().show();
 					return false;
 				}
 		});
