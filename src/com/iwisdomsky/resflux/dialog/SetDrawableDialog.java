@@ -147,7 +147,6 @@ public class SetDrawableDialog
 			});
 	}
 
-	@Override
 	public void show(){
 		// create the dialog
 		mCPD = mDialog.create();

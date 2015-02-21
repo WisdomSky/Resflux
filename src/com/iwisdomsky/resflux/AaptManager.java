@@ -4,10 +4,8 @@ import android.content.*;
 import java.io.*;
 
 public abstract class AaptManager 
-{	
-	
-	
-	private static DataInputStream getDump(Context context, String apk_path,String what){
+{
+	private static BufferedReader getDump(Context context, String apk_path,String what){
 		java.lang.Process proc = null;
 		try
 		{
@@ -15,11 +13,16 @@ public abstract class AaptManager
 		}
 		catch (IOException e)
 		{}
-		return new DataInputStream(proc.getInputStream());		
+		try {
+			return new BufferedReader(new InputStreamReader(proc.getInputStream(), "UTF-8"));
+		} catch (UnsupportedEncodingException e)
+		{}
+
+		return null;
 	}
 	
 
-	public static DataInputStream getDumpResourcesStream(Context context, String apk_path){
+	public static BufferedReader getDumpResourcesStream(Context context, String apk_path){
 		return getDump(context, apk_path, "resources");
 	}
 

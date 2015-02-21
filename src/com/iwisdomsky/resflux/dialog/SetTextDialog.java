@@ -122,10 +122,7 @@ public class SetTextDialog
 		mCButton.setVisibility(View.VISIBLE);
 		return this;		
 	}
-	
-	
-	
-	@Override
+
 	public void show(){
 		mCPD = mDialog.create();
 		mCPD.show();
