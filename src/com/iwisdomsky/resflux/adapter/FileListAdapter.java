@@ -8,7 +8,7 @@ import com.iwisdomsky.resflux.*;
 import java.io.*;
 import java.util.*;
 
-public class FileListAdapter extends ArrayAdapter<String>
+public class FileListAdapter extends ArrayAdapter<File>
  {
 
 	private final Activity mContext;

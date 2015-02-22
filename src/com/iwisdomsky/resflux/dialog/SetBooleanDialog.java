@@ -103,8 +103,8 @@ public class SetBooleanDialog
 			mTButton.setBackgroundColor(0xff444444);
 			mFButton.setBackgroundColor(0x00000000);			
 		} else {
-			mTButton.setBackgroundResource(0x00000000);
-			mFButton.setBackgroundResource(0xff444444);						
+			mTButton.setBackgroundColor(0x00000000);
+			mFButton.setBackgroundColor(0xff444444);
 		}		
 		return this;
 	}
@@ -140,9 +140,6 @@ public class SetBooleanDialog
 		return this;		
 	}
 
-
-
-	@Override
 	public void show(){
 		mCPD = mDialog.create();
 		mCPD.show();
