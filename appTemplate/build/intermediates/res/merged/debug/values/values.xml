@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="a">#77ff77</color>
+    <color name="b">#229922</color>
+    <declare-styleable name="ColorBars"><attr format="dimension" name="bar_thickness"/><attr format="dimension" name="bar_length"/><attr format="dimension" name="bar_pointer_radius"/><attr format="dimension" name="bar_pointer_halo_radius"/><attr format="boolean" name="bar_orientation_horizontal"/></declare-styleable>
+    <declare-styleable name="ColorPicker"><attr format="dimension" name="color_wheel_radius"/><attr format="dimension" name="color_wheel_thickness"/><attr format="dimension" name="color_center_radius"/><attr format="dimension" name="color_center_halo_radius"/><attr format="dimension" name="color_pointer_radius"/><attr format="dimension" name="color_pointer_halo_radius"/></declare-styleable>
+    <!-- From: file:/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/exploded-aar/resflux/holoColorPickermaster/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="bar_length">240dp</dimen>
+    <dimen name="bar_pointer_halo_radius">14dp</dimen>
+    <dimen name="bar_pointer_radius">6dp</dimen>
+    <dimen name="bar_thickness">4dp</dimen>
+    <dimen name="color_center_halo_radius">60dp</dimen>
+    <dimen name="color_center_radius">54dp</dimen>
+    <dimen name="color_pointer_halo_radius">18dp</dimen>
+    <dimen name="color_pointer_radius">14dp</dimen>
+    <dimen name="color_wheel_radius">124dp</dimen>
+    <dimen name="color_wheel_thickness">8dp</dimen>
+    <!-- From: file:/Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="button_disabled_text">
+		<item name="android:textColor">#44ffffff</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_margin">3dp</item>
+		<item name="android:textSize">30sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowColor">#44000000</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">2</item>
+	</style>
+    <style name="button_text">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_margin">3dp</item>
+		<item name="android:textSize">30sp</item>
+		<item name="android:textStyle">bold</item>
+		<!--<item name="android:shadowColor" >#000000</item>
+		<item name="android:shadowDx" >1</item>
+		<item name="android:shadowDy" >1</item>
+		<item name="android:shadowRadius" >2</item>-->
+	</style>
+    <style name="main2" parent="@android:style/Theme.Light.NoTitleBar">
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowDx">0</item>
+		<item name="android:shadowDy">0</item>
+		<item name="android:shadowRadius">1</item>
+		<item name="android:windowBackground">@drawable/intro_bg</item>
+	</style>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/TRD/AndroidStudioProjects/resflux/zip4j_1.3.2/zip4j_1.3.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3e20955923c5b61bfbcd4590a87720643c729695">
+        <dex dex="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/pre-dexed/debug/zip4j_1.3.2-8670079cf8213117065c803db94b5395045fdeb3.jar" />
+    </item>
+    <item
+        jar="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/libs/android-support-v13.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d1581cddcb7a8670146268559e8931d85822d4a0">
+        <dex dex="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/pre-dexed/debug/android-support-v13-568f642f6abb1a087540664fcbe6a1023d5fbec2.jar" />
+    </item>
+    <item
+        jar="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/exploded-aar/resflux/holoColorPickermaster/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a2598f2c3995a61696de2433c8750b9c7b65f0ab">
+        <dex dex="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/pre-dexed/debug/classes-b8cdf56aa150cb00ecee1b4a2292b5e309f40abe.jar" />
+    </item>
+    <item
+        jar="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/libs/XposedBridgeApi-54.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5f16da4d2ecb2c95be2556550e4a63461f43a99b">
+        <dex dex="/Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/pre-dexed/debug/XposedBridgeApi-54-edc5b733cf7db1c6c2f9b0c6dbf48998947ef01c.jar" />
+    </item>
+
+</items>

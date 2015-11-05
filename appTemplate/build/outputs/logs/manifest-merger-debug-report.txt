@@ -1,0 +1,106 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:2:1-50:12
+	xmlns:android
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:3:2-60
+	package
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:4:5-37
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:6:5-30
+	android:versionCode
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:5:5-28
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:8:5-10:41
+MERGED from [resflux:holoColorPickermaster:unspecified] /Users/TRD/AndroidStudioProjects/resflux/appTemplate/build/intermediates/exploded-aar/resflux/holoColorPickermaster/unspecified/AndroidManifest.xml:7:5-9:41
+	android:targetSdkVersion
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:10:9-38
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:9:9-35
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:12:2-63
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:12:19-61
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:13:22-78
+application
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:15:2-48:16
+	android:label
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:16:9-32
+	android:icon
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:18:3-32
+	android:theme
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:17:3-31
+	android:largeHeap
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:19:3-27
+activity#com.iwisdomsky.resflux.MainActivity
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:21:9-28:20
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:23:13-41
+	android:launchMode
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:22:4-39
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:24:13-27:29
+action#android.intent.action.MAIN
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:25:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:26:27-74
+activity#com.iwisdomsky.resflux.LaboratoryActivity
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:30:3-31:50
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:31:13-47
+activity#com.iwisdomsky.resflux.ExperimentActivity
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:32:3-36:50
+	android:screenOrientation
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:33:4-40
+	android:configChanges
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:34:4-39
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:36:13-47
+	android:launchMode
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:35:4-34
+activity#com.iwisdomsky.resflux.ExportActivity
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:37:3-39:46
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:39:13-43
+	android:launchMode
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:38:4-39
+activity#com.iwisdomsky.resflux.ImportActivity
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:40:3-43:46
+	android:hardwareAccelerated
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:41:4-38
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:43:13-43
+	android:launchMode
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:42:4-39
+meta-data#xposedmodule
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:45:3-65
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:45:14-41
+	android:value
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:45:42-62
+meta-data#xposedminversion
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:46:3-69
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:46:14-45
+	android:value
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:46:46-66
+meta-data#xposeddescription
+ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:47:6-92
+	android:name
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:47:17-49
+	android:value
+		ADDED from /Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/AndroidManifest.xml:47:50-89

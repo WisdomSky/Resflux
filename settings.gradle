@@ -1,0 +1,2 @@
+include ':holoColorPickermaster', ':zip4j_1.3.2'
+include ':appTemplate'

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+	android:gravity="center"
+	>
+
+    <TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="75sp"
+		android:text="Resflux" 
+		/>		
+		
+
+   <!-- <TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="16sp"
+		android:textColor="#777777"
+		android:text=""
+		android:shadowRadius="0"
+		/>		
+	-->
+	<ProgressBar
+		android:id="@+id/loading"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+		
+	<ScrollView
+		android:fillViewport="true"
+		android:gravity="center"	
+		android:visibility="gone"
+		android:id="@+id/rooms"
+		android:layout_width="match_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp">
+		
+		<LinearLayout
+			android:layout_gravity="center_horizontal"
+			android:gravity="center"
+			android:orientation="vertical" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		
+		<Button
+			android:onClick="laboratory"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"		
+			android:text="Laboratory"
+			/>
+	
+		<Button
+			android:onClick="importt"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:text="Import"
+		/>
+
+		<Button
+			android:onClick="export"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:text="Export"
+		/>
+
+		<Button
+			android:onClick="help"
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:text="How to use?"
+			/>	
+
+
+			<Button
+				android:onClick="about"
+				android:layout_width="300dp"
+				android:layout_height="wrap_content"
+				android:text="About"
+			/>			
+		
+	
+		
+		</LinearLayout>
+	</ScrollView>
+	
+	
+	<TextView
+		android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:text="WisdomSky 2015" />
+
+	
+</LinearLayout>
+<!-- From: file:/Users/TRD/AndroidStudioProjects/resflux/appTemplate/src/main/res/layout/main.xml -->
