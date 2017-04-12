@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iwisdomsky.resflux"
+    android:versionCode="1"
+    android:versionName="1.6.1" >
+
+    <uses-sdk 
+        android:minSdkVersion="10" 
+        android:targetSdkVersion="23" />
+		
+   	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	
+	<application
+        android:label="Resflux" 
+		android:theme="@style/main"	
+		android:icon="@drawable/icon"
+		android:largeHeap="true"
+		>
+        <activity
+			android:launchMode="singleInstance"
+            android:name=".MainActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+		<activity
+            android:name=".LaboratoryActivity" />	
+		<activity
+			android:screenOrientation="portrait"
+			android:configChanges="orientation"
+			android:launchMode="singleTop"
+            android:name=".ExperimentActivity" />
+		<activity
+			android:launchMode="singleInstance"
+            android:name=".ExportActivity" />
+		<activity
+			android:hardwareAccelerated="true"
+			android:launchMode="singleInstance"
+            android:name=".ImportActivity" />
+		
+		<meta-data android:name="xposedmodule" android:value="true" />
+		<meta-data android:name="xposedminversion" android:value="2.0*" />	
+    	<meta-data android:name="xposeddescription" android:value="Developed by: WisdomSky" />
+	</application>
+
+</manifest>

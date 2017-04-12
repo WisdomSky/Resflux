@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<shape>
+			<gradient
+				android:startColor="#cccccc"
+				android:endColor="#ffffff"
+				android:angle="90" />
+		</shape>
+	</item>
+</selector>
+<!-- From: file:/Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/res/drawable/laboratory_header.xml -->

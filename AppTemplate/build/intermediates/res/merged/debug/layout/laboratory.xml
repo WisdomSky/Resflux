@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="18sp"
+		android:gravity="center"
+		android:text="Select Target App" />		
+
+	<ProgressBar
+		android:layout_gravity="center"
+		android:id="@+id/loading"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
+	<ListView 
+		android:visibility="gone"
+		android:id="@+id/packagelist"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:divider= "@null"
+		/>
+
+
+
+</LinearLayout>
+<!-- From: file:/Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/res/layout/laboratory.xml -->

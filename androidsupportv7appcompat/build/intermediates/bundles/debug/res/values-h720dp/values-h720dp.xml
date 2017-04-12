@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/macmini/Desktop/android-projects/Resflux-gradle/androidsupportv7appcompat/src/main/res/values-h720dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="abc_alert_dialog_button_bar_height">54dip</dimen>
+</resources>

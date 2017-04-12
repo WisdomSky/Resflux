@@ -1,0 +1,128 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:2:1-49:12
+	xmlns:android
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:3:2-60
+	package
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:4:5-37
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:6:5-32
+	android:versionCode
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:5:5-28
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha1/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v13:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v13/24.0.0-alpha1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:palette-v7:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:20:5-43
+MERGED from [Resflux-gradle:holopicker:unspecified] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/Resflux-gradle/holopicker/unspecified/AndroidManifest.xml:5:5-7:41
+	android:targetSdkVersion
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:10:9-38
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:9:9-35
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+		INJECTED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha1/AndroidManifest.xml:23:9-75
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:12:5-80
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:12:22-78
+application
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:14:2-47:16
+MERGED from [com.android.support:appcompat-v7:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha1/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha1/AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v13:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v13/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:palette-v7:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0-alpha1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:support-v4:24.0.0-alpha1] /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha1/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:15:9-32
+	android:icon
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:17:3-32
+	android:theme
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:16:3-30
+	android:largeHeap
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:18:3-27
+activity#com.iwisdomsky.resflux.MainActivity
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:20:9-27:20
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:22:13-41
+	android:launchMode
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:21:4-39
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:23:13-26:29
+action#android.intent.action.MAIN
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:25:27-74
+activity#com.iwisdomsky.resflux.LaboratoryActivity
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:29:3-30:50
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:30:13-47
+activity#com.iwisdomsky.resflux.ExperimentActivity
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:31:3-35:50
+	android:screenOrientation
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:32:4-40
+	android:configChanges
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:33:4-39
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:35:13-47
+	android:launchMode
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:34:4-34
+activity#com.iwisdomsky.resflux.ExportActivity
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:36:3-38:46
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:38:13-43
+	android:launchMode
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:37:4-39
+activity#com.iwisdomsky.resflux.ImportActivity
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:39:3-42:46
+	android:hardwareAccelerated
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:40:4-38
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:42:13-43
+	android:launchMode
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:41:4-39
+meta-data#xposedmodule
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:44:3-65
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:44:14-41
+	android:value
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:44:42-62
+meta-data#xposedminversion
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:45:3-69
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:45:14-45
+	android:value
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:45:46-66
+meta-data#xposeddescription
+ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:46:6-92
+	android:name
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:46:17-49
+	android:value
+		ADDED from /Users/macmini/Desktop/android-projects/Resflux-gradle/AppTemplate/src/main/AndroidManifest.xml:46:50-89

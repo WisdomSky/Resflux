@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/macmini/Desktop/android-projects/Resflux-gradle/androidsupportv7appcompat/build/intermediates/bundles/debug/res/values-v18/values-v18.xml -->
+    <eat-comment/>
+    <dimen name="abc_switch_padding">0px</dimen>
+</resources>

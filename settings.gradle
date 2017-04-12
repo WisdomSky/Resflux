@@ -1,0 +1,2 @@
+include ':androidsupportv7appcompat', ':holopicker'
+include ':AppTemplate'
